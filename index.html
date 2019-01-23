@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Future Cities</title>
+  </head>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      min-height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-image: linear-gradient(transparent 800px, #050C10 800px), linear-gradient(#082240, #0D304E 370px);
+      background-repeat: no-repeat, no-repeat;
+      background-size: 100% 100%, 100% 100%;
+    }
+
+    .city {
+      align-items: flex-end;
+      background-image: url(./assets/mountains.gif);
+      background-position: center bottom 100px;
+      background-repeat: repeat-x;
+      display: flex;
+      flex-direction: row;
+      height: 900px;
+      padding: 100px 0;
+    }
+
+    .building {
+      background-color: #050C10;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .window {
+      background: #FEEB9E;
+      position: relative;
+      z-index: 1;
+    }
+
+    .window.dark {
+      background: #888;
+    }
+
+    .antenna {
+      background-color: #050C10;
+      height: 15px;
+      position: absolute;
+      width: 1px;
+    }
+
+    .antenna.lit:before {
+      background-color: red;
+      content: '';
+      display: block;
+      height: 1px;
+      width: 1px;
+    }
+
+    .antenna-1 {
+      left: 60%;
+      top: -15px;
+    }
+
+    .antenna-2 {
+      left: 70%;
+      top: -8px;
+    }
+
+    .spotlight {
+      background-color: #050C10;
+      height: 4px;
+      left: 50%;
+      position: absolute;
+      top: -4px;
+      width: 4px;
+    }
+
+    .spotlight:before {
+      background-color: yellow;
+      content: '';
+      display: block;
+      height: 300px;
+      left: -24px;
+      position: absolute;
+      top: -343px;
+      transform: skewX(-10deg) rotate(-20deg);
+      width: 300px;
+    }
+
+    .building-1 {
+      padding: 5px 5px 0 0;
+      width: 25px;
+    }
+
+    .building-1 .window {
+      height: 5px;
+      margin: 0 0 5px 5px;
+      width: 5px;
+    }
+
+    .building-2 {
+      padding: 5px 5px 4px 5px;
+      width: 24px;
+    }
+
+    .building-2 .window {
+      height: 10px;
+      margin: 0 0 1px 0;
+      width: 7px;
+    }
+
+    .building-3 {
+      padding: 2px 2px 4px 2px;
+      width: 18px;
+    }
+
+    .building-3 .window {
+      height: 5px;
+      margin: 1px;
+      width: 5px;
+    }
+
+    .building-4 {
+      padding: 2px 5px;
+      width: 20px;
+    }
+
+    .building-4 .window {
+      height: 5px;
+      margin: 3px 0;
+      width: 5px;
+    }
+
+    .building-5 {
+      padding: 3px 1px;
+      width: 20px;
+    }
+
+    .building-5 .window {
+      height: 2px;
+      margin: 0 1px 2px 1px;
+      width: 7px;
+    }
+
+    .building-6 {
+      padding: 2px 5px;
+      width: 20px;
+    }
+
+    .building-6 .window {
+      height: 5px;
+      margin: 3px 0;
+      width: 5px;
+    }
+
+  </style>
+
+  <body>
+    <section class="city">
+      <article class="building building-1">
+        <div class="antenna antenna-1 lit"></div>
+        <div class="antenna antenna-2"></div>
+        <div class="window"></div>
+        <div class="window dark"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+      </article>
+      <article class="building building-2">
+        <div class="dish"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window dark"></div>
+        <div class="window dark"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+      </article>
+      <article class="building building-3">
+        <div class="spotlight right"></div>
+        <div class="window"></div>
+        <div class="window dark"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+      </article>
+      <article class="building building-4">
+        <!-- <div class="spotlight left"></div> -->
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window dark"></div>
+        <div class="window dark"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+      </article>
+      <article class="building building-5">
+        <div class="window"></div>
+        <div class="window dark"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+      </article>
+      <article class="building building-6">
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window dark"></div>
+        <div class="window dark"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+      </article>
+    </section>
+  </body>
+
+</html>
