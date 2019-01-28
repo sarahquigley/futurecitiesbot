@@ -39,6 +39,24 @@
       --color-window--dark: #888;
     }
 
+    .f-city-2 {
+      --color-antenna--light: red;
+      --color-building: #050C10;
+      --color-sky--bottom: #60886e;
+      --color-sky--top: #082240;
+      --color-window--light: #daf9b1;
+      --color-window--dark: #888;
+    }
+
+    .f-city-3 {
+      --color-antenna--light: red;
+      --color-building: #050C10;
+      --color-sky--bottom: #d2a84b;
+      --color-sky--top: #6f0f0f;
+      --color-window--light: #f7bcbc;
+      --color-window--dark: #846a6a;
+    }
+
     .city-container {
       background-image: linear-gradient(transparent 500px, var(--color-building) 500px), linear-gradient(var(--color-sky--top), var(--color-sky--bottom) 370px);
       background-repeat: no-repeat, no-repeat;
@@ -108,6 +126,7 @@
       position: absolute;
       top: -4px;
       width: 4px;
+      z-index: 2;
     }
 
     .spotlight:before {
@@ -196,7 +215,7 @@
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js" charset="utf-8"></script>
 
   <script type="text/template" id="city">
-    <div class="f-city f-city-<%= _.random(1,1) %>">
+    <div class="f-city f-city-<%= _.random(1,3) %>">
       <div class="city-container">
         <section class="city">
           <% _.times(500, function(n) { %>
