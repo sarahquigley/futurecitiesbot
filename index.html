@@ -176,86 +176,9 @@
 
   <body>
     <section class="city">
-      <article class="building building-1">
-        <div class="antenna antenna-1 lit"></div>
-        <div class="antenna antenna-2"></div>
-        <div class="window"></div>
-        <div class="window dark"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-      </article>
-      <article class="building building-2">
-        <div class="dish"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window dark"></div>
-        <div class="window dark"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-      </article>
-      <article class="building building-3">
-        <div class="spotlight right"></div>
-        <div class="window"></div>
-        <div class="window dark"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-      </article>
-      <article class="building building-4">
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window dark"></div>
-        <div class="window dark"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-      </article>
-      <article class="building building-5">
-        <div class="spotlight left"></div>
-        <div class="window"></div>
-        <div class="window dark"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-      </article>
     </section>
   </body>
-  <script src="./node_modules/lodash/lodash.min.js" charset="utf-8"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js" charset="utf-8"></script>
   <script type="text/template" id="city">
     <% _.times(500, function(n) { %>
       <article class="building building-<%= _.random(1,5) %>">
