@@ -3,6 +3,7 @@
 
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Future Cities</title>
   </head>
 
@@ -13,13 +14,33 @@
 
     body,
     html {
+      height: 100%;
       min-height: 100%;
       margin: 0;
       padding: 0;
     }
 
-    body {
-      background-image: linear-gradient(transparent 800px, #050C10 800px), linear-gradient(#082240, #0D304E 370px);
+    .f-city {
+      align-items: center;
+      background-image: linear-gradient(var(--color-sky--top) 50%, var(--color-building) 50%);
+      background-repeat: no-repeat;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      min-height: 100%;
+    }
+
+    .f-city-1 {
+      --color-antenna--light: red;
+      --color-building: #050C10;
+      --color-sky--bottom: #0D304E;
+      --color-sky--top: #082240;
+      --color-window--light: #FEEB9E;
+      --color-window--dark: #888;
+    }
+
+    .city-container {
+      background-image: linear-gradient(transparent 500px, var(--color-building) 500px), linear-gradient(var(--color-sky--top), var(--color-sky--bottom) 370px);
       background-repeat: no-repeat, no-repeat;
       background-size: 100% 100%, 100% 100%;
     }
@@ -31,13 +52,13 @@
       background-repeat: repeat-x;
       display: flex;
       flex-direction: row;
-      height: 900px;
+      height: 600px;
       overflow-x: hidden;
       padding: 100px 0;
     }
 
     .building {
-      background-color: #050C10;
+      background-color: var(--color-building);
       display: flex;
       flex-direction: row;
       flex-shrink: 0;
@@ -46,24 +67,24 @@
     }
 
     .window {
-      background: #FEEB9E;
+      background: var(--color-window--light);
       position: relative;
       z-index: 1;
     }
 
     .window.dark {
-      background: #888;
+      background: var(--color-window--dark);
     }
 
     .antenna {
-      background-color: #050C10;
+      background-color: var(--color-building);
       height: 15px;
       position: absolute;
       width: 1px;
     }
 
     .antenna.lit:before {
-      background-color: red;
+      background-color: var(--color-antenna--light);
       content: '';
       display: block;
       height: 1px;
@@ -81,7 +102,7 @@
     }
 
     .spotlight {
-      background-color: #050C10;
+      background-color: var(--color-building);
       height: 4px;
       left: 50%;
       position: absolute;
@@ -167,34 +188,36 @@
       width: 7px;
     }
 
-    /* .building-4 .window.dark + .building-4 .window,
-    .building-4 .window:has(+ .building-4 .window.dark) {
-      background: #888;
-    } */
-
   </style>
 
   <body>
-    <section class="city">
-    </section>
   </body>
+
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js" charset="utf-8"></script>
+
   <script type="text/template" id="city">
-    <% _.times(500, function(n) { %>
-      <article class="building building-<%= _.random(1,5) %>">
-        <% if (_.random(0,15) === 0) { %>
-        <div class="spotlight <% if (_.random(0,1) === 0) { %> left<% } else { %> right <% } %>"></div>
-        <% } %>
-        <% _.times(_.random(2,14)*2, function(n) { %>
-          <div class="window<% if (_.random(0,3) === 0) { %> dark<% } %>"></div>
-        <% }); %>
-      </article>
-    <% }); %>
+    <div class="f-city f-city-<%= _.random(1,1) %>">
+      <div class="city-container">
+        <section class="city">
+          <% _.times(500, function(n) { %>
+            <article class="building building-<%= _.random(1,5) %>">
+              <% if (_.random(0,15) === 0) { %>
+              <div class="spotlight <% if (_.random(0,1) === 0) { %>left<% } else { %>right <% } %>"></div>
+              <% } %>
+              <% _.times(_.random(2,14)*2, function(n) { %>
+                <div class="window<% if (_.random(0,3) === 0) { %> dark<% } %>"></div>
+              <% }); %>
+            </article>
+          <% }); %>
+        </section>
+      </div>
+    </div>
   </script>
+
   <script type="text/javascript">
     var cityTemplate = document.querySelector('#city').textContent;
     var city = _.template(cityTemplate)({});
-    document.querySelector('.city').innerHTML = city;
+    document.querySelector('body').innerHTML = city;
   </script>
 
 </html>
