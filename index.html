@@ -26,12 +26,13 @@
 
     .city {
       align-items: flex-end;
-      background-image: url(./assets/mountains.gif);
+      background-image: url(./assets/mountains.svg);
       background-position: center bottom 100px;
       background-repeat: repeat-x;
       display: flex;
       flex-direction: row;
       height: 900px;
+      overflow-x: hidden;
       padding: 100px 0;
     }
 
@@ -39,6 +40,7 @@
       background-color: #050C10;
       display: flex;
       flex-direction: row;
+      flex-shrink: 0;
       flex-wrap: wrap;
       position: relative;
     }
@@ -88,15 +90,26 @@
     }
 
     .spotlight:before {
-      background-color: yellow;
       content: '';
       display: block;
       height: 300px;
-      left: -24px;
       position: absolute;
-      top: -343px;
-      transform: skewX(-10deg) rotate(-20deg);
       width: 300px;
+      z-index: 1;
+    }
+
+    .spotlight.right:before {
+      background-image: radial-gradient(circle at bottom left, rgba(215, 226, 215, 1) 5%, rgba(215, 226, 215, 0.25) 30%, rgba(215, 226, 215, 0.05) 50%, transparent 60%);
+      left: -61px;
+      top: -362px;
+      transform: skewX(-17deg) rotate(-39deg);
+    }
+
+    .spotlight.left:before {
+      background-image: radial-gradient(circle at bottom right, rgba(215, 226, 215, 1) 5%, rgba(215, 226, 215, 0.25) 30%, rgba(215, 226, 215, 0.05) 50%, transparent 60%);
+      left: -238px;
+      top: -362px;
+      transform: skewX(18deg) rotate(39deg);
     }
 
     .building-1 {
@@ -154,17 +167,6 @@
       width: 7px;
     }
 
-    .building-6 {
-      padding: 2px 5px;
-      width: 20px;
-    }
-
-    .building-6 .window {
-      height: 5px;
-      margin: 3px 0;
-      width: 5px;
-    }
-
   </style>
 
   <body>
@@ -218,7 +220,6 @@
         <div class="window"></div>
       </article>
       <article class="building building-4">
-        <!-- <div class="spotlight left"></div> -->
         <div class="window"></div>
         <div class="window"></div>
         <div class="window dark"></div>
@@ -231,6 +232,7 @@
         <div class="window"></div>
       </article>
       <article class="building building-5">
+        <div class="spotlight left"></div>
         <div class="window"></div>
         <div class="window dark"></div>
         <div class="window"></div>
@@ -239,18 +241,6 @@
         <div class="window"></div>
         <div class="window"></div>
         <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window"></div>
-      </article>
-      <article class="building building-6">
-        <div class="window"></div>
-        <div class="window"></div>
-        <div class="window dark"></div>
-        <div class="window dark"></div>
         <div class="window"></div>
         <div class="window"></div>
         <div class="window"></div>
@@ -260,5 +250,23 @@
       </article>
     </section>
   </body>
+  <script src="./node_modules/lodash/lodash.min.js" charset="utf-8"></script>
+  <script type="text/template" id="city">
+    <% _.times(500, function(n) { %>
+      <article class="building building-<%= _.random(1,5) %>">
+        <% if (_.random(0,15) === 0) { %>
+        <div class="spotlight <% if (_.random(0,1) === 0) { %> left<% } else { %> right <% } %>"></div>
+        <% } %>
+        <% _.times(_.random(2,14)*2, function(n) { %>
+          <div class="window<% if (_.random(0,3) === 0) { %> dark<% } %>"></div>
+        <% }); %>
+      </article>
+    <% }); %>
+  </script>
+  <script type="text/javascript">
+    var cityTemplate = document.querySelector('#city').textContent;
+    var city = _.template(cityTemplate)({});
+    document.querySelector('.city').innerHTML = city;
+  </script>
 
 </html>

@@ -1,0 +1,26 @@
+{
+  "name": "futurecitiesbot",
+  "version": "1.0.0",
+  "description": "Random city generator.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarahquigley/futurecitiesbot.git"
+  },
+  "keywords": [
+    "city",
+    "generator"
+  ],
+  "author": "Sarah Quigley",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/sarahquigley/futurecitiesbot/issues"
+  },
+  "homepage": "https://github.com/sarahquigley/futurecitiesbot#readme",
+  "dependencies": {
+    "lodash": "^4.17.11"
+  }
+}
