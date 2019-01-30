@@ -221,8 +221,14 @@
         <section class="city">
           <% _.times(500, function(n) { %>
             <article class="building building-<%= _.random(1,5) %>">
-              <% if (_.random(0,15) === 0) { %>
-              <div class="spotlight <% if (_.random(0,1) === 0) { %>left<% } else { %>right <% } %>"></div>
+              <% var roofDecor = _.random(0,15) %>
+              <% if (roofDecor === 0) { %>
+                <div class="spotlight <% if (_.random(0,1) === 0) { %>left<% } else { %>right <% } %>"></div>
+              <% } else if (roofDecor % 5 === 0) { %>
+                <div
+                  class="antenna antenna-1<% if (_.random(0,1) === 0) { %> lit<% } %>"
+                  style="top: -<%= _.random(8,15) %>px; left: <%= _.random(20,80) %>%;"
+                ></div>
               <% } %>
               <% _.times(_.random(2,14)*2, function(n) { %>
                 <div class="window<% if (_.random(0,3) === 0) { %> dark<% } %>"></div>
